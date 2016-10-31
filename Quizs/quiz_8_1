@@ -1,0 +1,20 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+#for(i in 1 to 8)
+x = [0,0,0,0.167,0.333,0.333,0.5,0.5,0.667,0.667,0.833,1]
+y = [0.167,0.333,0.5,0.5,0.5,0.667,0.667,0.833,0.833,1,1,1]
+
+
+plt.title('Receiver operating characteristic curve')
+plt.legend(loc = 'lower right')
+plt.plot(x,y,color="r")
+plt.xlim([0, 1])
+plt.ylim([0, 1])
+plt.xticks([0.000,0.167,0.333,0.5,0.667,0.833,1.000])
+plt.yticks([0.000,0.167,0.333,0.5,0.667,0.833,1.000])
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.plot(x,y)
+plt.show()
