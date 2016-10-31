@@ -1,0 +1,19 @@
+
+#quiz 6b 1 GaussianNB
+from matplotlib import pyplot
+import numpy as np
+from sklearn.naive_bayes import GaussianNB
+from sklearn.datasets import load_breast_cancer
+from sklearn.cross_validation import train_test_split
+
+#1.load the breast cancer data
+cancer_data = load_breast_cancer()
+x = cancer_data.data
+y = cancer_data.target
+#2.use split function
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.33,random_state=2)
+#3.fit GaussianNB
+clf = GaussianNB().fit(x,y)
+doc_class_predicted = clf.predict(x_test)
+#4.reprot accuracy
+print(np.mean(doc_class_predicted == y_test))
