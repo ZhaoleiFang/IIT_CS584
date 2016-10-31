@@ -1,0 +1,21 @@
+from sklearn.cross_validation import cross_val_score
+from sklearn.datasets import load_breast_cancer
+from sklearn.linear_model import LogisticRegression
+import numpy as np
+
+cancer_data = load_breast_cancer()
+x = cancer_data.data
+y = cancer_data.target
+clf = LogisticRegression().fit(x,y)
+
+accuracy = cross_val_score(clf,x,y,cv = 8,scoring="accuracy")
+print("%0.3f"%accuracy.mean())
+
+precision = cross_val_score(clf,x,y,cv = 8,scoring="precision")
+print("%0.3f"%precision.mean())
+
+recall = cross_val_score(clf,x,y,cv = 8,scoring="recall")
+print("%0.3f"%recall.mean())
+
+auc = cross_val_score(clf,x,y,cv = 8,scoring="roc_auc")
+print("%0.3f"%auc.mean())
