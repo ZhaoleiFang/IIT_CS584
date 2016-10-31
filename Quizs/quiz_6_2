@@ -1,0 +1,10 @@
+#quiz 6b 2 scipy.optimize
+import numpy as np
+from scipy.optimize import minimize
+
+def f(w):
+    return 5*w - 9*np.log(1+np.exp(w))
+def fp(w):
+    return 5 - (9./(1+np.exp(w)))*np.exp(w)
+
+res = minimize(fun=lambda x: -f(x),x0=1,method='BFGS',jac=lambda x: -fp(x))
